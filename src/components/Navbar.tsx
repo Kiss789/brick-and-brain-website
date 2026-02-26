@@ -33,7 +33,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt="Brick & Brain"
                 height={48}
                 width={48}
