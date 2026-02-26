@@ -130,7 +130,7 @@ export default function CommentCaMarchePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             <Image
-              src="/images/training-session.svg"
+              src="/images/training-session.jpeg"
               alt="Session de formation en école — l'enseignant apprend à animer chaque projet"
               width={1200}
               height={600}

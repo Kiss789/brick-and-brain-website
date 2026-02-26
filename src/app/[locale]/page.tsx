@@ -33,7 +33,7 @@ export default function HomePage() {
           </div>
           <div className="flex-1">
             <Image
-              src="/images/workshop-children.svg"
+              src="/images/workshop-children.png"
               alt="Brick & Brain workshop"
               width={600}
               height={400}

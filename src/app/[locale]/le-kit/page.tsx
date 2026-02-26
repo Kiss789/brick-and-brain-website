@@ -24,7 +24,7 @@ export default function LeKitPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             <Image
-              src="/images/kit-overview.svg"
+              src="/images/kit-overview.jpeg"
               alt="Le Kit Brick & Brain complet"
               width={1200}
               height={600}
