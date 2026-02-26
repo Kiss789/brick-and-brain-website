@@ -3,9 +3,9 @@ import createMiddleware from 'next-intl/middleware';
 export default createMiddleware({
   locales: ['fr', 'en'],
   defaultLocale: 'fr',
-  localeDetection: true
+  localeDetection: false
 });
 
 export const config = {
-  matcher: ['/((?!_next|.*\\..*).*)']
+  matcher: ['/((?!_next|_vercel|.*\\..*).*)']
 };
