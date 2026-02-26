@@ -3,9 +3,5 @@ import type { NextConfig } from "next";
 
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-};
-
+const nextConfig: NextConfig = {};
 export default withNextIntl(nextConfig);
