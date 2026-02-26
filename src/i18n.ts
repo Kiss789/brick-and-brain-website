@@ -14,9 +14,24 @@ export default getRequestConfig(async ({locale}) => {
 
   // Load messages using fs - resolve from project root
   const messagesPath = join(process.cwd(), 'messages', `${localePath}.json`);
-  const messagesContent = readFileSync(messagesPath, 'utf-8');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const messages: any = JSON.parse(messagesContent);
+  
+  let messages;
+  try {
+    const messagesContent = readFileSync(messagesPath, 'utf-8');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    messages = JSON.parse(messagesContent);
+  } catch (error) {
+    console.error(`Failed to load messages for locale ${localePath}:`, error);
+    // Fallback to default locale if current locale fails
+    if (localePath !== defaultLocale) {
+      const fallbackPath = join(process.cwd(), 'messages', `${defaultLocale}.json`);
+      const fallbackContent = readFileSync(fallbackPath, 'utf-8');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      messages = JSON.parse(fallbackContent);
+    } else {
+      throw error;
+    }
+  }
 
   return {
     locale: localePath,
