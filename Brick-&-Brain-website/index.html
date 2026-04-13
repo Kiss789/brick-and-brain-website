@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brick & Brain — Programme STEM clé en main pour écoles primaires privées</title>
+  <meta name="description" content="Kit LEGO Technic complet, formation enseignants incluse. Votre école garde 100% des revenus parents. Belgique & Hauts-de-France." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #E24B4A;
+      --red-dark: #A32D2D;
+      --red-light: #FCEBEB;
+      --blue: #185FA5;
+      --blue-mid: #378ADD;
+      --blue-light: #E6F1FB;
+      --blue-dark: #0C447C;
+      --teal: #1D9E75;
+      --teal-light: #E1F5EE;
+      --teal-dark: #0F6E56;
+      --amber: #BA7517;
+      --amber-light: #FAEEDA;
+      --amber-dark: #854F0B;
+      --green: #3B6D11;
+      --green-light: #EAF3DE;
+      --gray-50: #F1EFE8;
+      --gray-200: #B4B2A9;
+      --gray-600: #5F5E5A;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --text-hint: #999;
+      --border: rgba(0,0,0,0.1);
+      --border-med: rgba(0,0,0,0.2);
+      --surface: #f8f8f6;
+      --surface2: #f0f0ed;
+      --r-md: 8px;
+      --r-lg: 12px;
+      --r-xl: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--red);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: #fff;
+    }
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .logo-text span { color: var(--red); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--red-dark); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; }
+    .divider { border: none; border-top: 0.5px solid var(--border); }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
+    }
+    .section-intro {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 5rem 0 4.5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--amber-light);
+      color: var(--amber);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.2px;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+    h1 .red { color: var(--red); }
+    h1 .blue { color: var(--blue); }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      padding: 13px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: var(--red-dark); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 0.5px solid var(--border-med);
+      border-radius: var(--r-md);
+      padding: 13px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--surface); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      padding: 1.25rem;
+    }
+    .stat-card.accent {
+      background: var(--blue);
+      grid-column: span 2;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+    .stat-card.accent .stat-num { color: #fff; }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+    .stat-card.accent .stat-lbl { color: rgba(255,255,255,0.7); }
+
+    /* ── CONCEPT / STEPS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step-card {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      padding: 1.4rem;
+    }
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--border-med);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── LEARNING / PEDAGOGY ── */
+    .learn-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .photo-block {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+    }
+    .photo-block img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 440px;
+    }
+    .photo-caption {
+      padding: 10px 14px;
+      background: var(--surface);
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 0.5px solid var(--border);
+      line-height: 1.4;
+    }
+    .benefits-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .benefit-card {
+      border-radius: var(--r-lg);
+      padding: 1.1rem 1.25rem;
+      border: 0.5px solid var(--border);
+      background: var(--white);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-md);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .benefit-icon svg { width: 18px; height: 18px; }
+    .benefit-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .benefit-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .learn-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .learn-stat {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      padding: 1rem;
+      text-align: center;
+    }
+    .learn-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+    }
+    .learn-stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* ── KIT ── */
+    .kit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .kit-item {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .kit-icon {
+      font-size: 26px;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .kit-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .kit-detail {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .price-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 1.6rem;
+      border: 0.5px solid var(--border);
+    }
+    .price-card.featured {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .price-card.featured * { color: #fff !important; }
+    .price-card.featured .price-features li::before { color: rgba(255,255,255,0.5) !important; }
+    .price-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+    .price-main {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+    .price-unit {
+      font-size: 14px;
+      font-weight: 400;
+      margin-left: 4px;
+    }
+    .price-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0.8rem 0 0.5rem;
+    }
+    .price-features {
+      list-style: none;
+      margin-top: 0.75rem;
+    }
+    .price-features li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      line-height: 1.4;
+    }
+    .price-features li::before {
+      content: "✓";
+      color: var(--blue-mid);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .launch-tag {
+      display: inline-block;
+      background: var(--amber-light);
+      color: var(--amber);
+      border-radius: 4px;
+      font-size: 11px;
+      padding: 2px 7px;
+      font-weight: 500;
+      margin-left: 6px;
+    }
+    .price-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── ROI CALCULATOR ── */
+    .calc-wrap {
+      background: var(--surface);
+      border-radius: var(--r-xl);
+      padding: 2rem;
+    }
+    .calc-sliders {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .calc-field label {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .calc-field input[type=range] {
+      width: 100%;
+      accent-color: var(--red);
+    }
+    .calc-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 5px;
+    }
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border-top: 0.5px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    .calc-result {
+      text-align: center;
+    }
+    .calc-result-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .calc-result-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ── PROOF ── */
+    .proof-block {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      padding: 1.75rem 2rem;
+      border-left: 3px solid var(--red);
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
+    }
+    .proof-quote {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .proof-source {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 2.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand .logo-text { font-size: 14px; }
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .footer-langs {
+      display: flex;
+      gap: 8px;
+    }
+    .lang-pill {
+      font-size: 11px;
+      border: 0.5px solid var(--border-med);
+      border-radius: 4px;
+      padding: 4px 10px;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .lang-pill.active {
+      border-color: var(--text);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      h1 { font-size: 30px; }
+      h2 { font-size: 24px; }
+      #hero { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .learn-layout { grid-template-columns: 1fr; }
+      .kit-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .calc-sliders { grid-template-columns: 1fr; }
+      .calc-results { grid-template-columns: 1fr; }
+      .learn-stats { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">B²</div>
+        <div class="logo-text">BRICK &amp; <span>BRAIN</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#pedagogie">Pédagogie</a></li>
+        <li><a href="#kit">Le kit</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#roi">ROI</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Réserver une démo →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="container">
+    <section id="hero">
+      <div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Belgique &amp; Hauts-de-France · Lancement 2025
+        </div>
+        <h1>Le programme <span class="red">STEM</span> que votre école garde <span class="blue">pour toujours.</span></h1>
+        <p class="hero-sub">Un kit LEGO Technic complet, 2 enseignants formés, et une source de revenus récurrents pour votre école — sans dépendre d'un prestataire externe.</p>
+        <div class="cta-group">
+          <a href="#contact" class="btn-primary">Demander un atelier démo — €750</a>
+          <a href="#contact" class="btn-secondary">Réserver un appel gratuit</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card accent">
+          <div class="stat-num">15–23 sem.</div>
+          <div class="stat-lbl">Retour sur investissement moyen</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">34</div>
+          <div class="stat-lbl">Ateliers / année</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">€7 500</div>
+          <div class="stat-lbl">Kit complet, à vie</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- CONCEPT -->
+    <section id="concept">
+      <p class="section-label">Concept</p>
+      <h2>Une fois installé, c'est à vous.</h2>
+      <p class="section-intro">Brick &amp; Brain n'est pas un abonnement à un prestataire. C'est un programme clé en main que votre école possède et opère de façon autonome.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">Acquisition du kit</div>
+          <div class="step-desc">LEGO Technic + moteurs + projets pédagogiques pour 10–12 élèves. Votre école conserve le kit à vie.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">Formation des enseignants</div>
+          <div class="step-desc">10 jours en format hybride. 2 enseignants inclus, jusqu'à 4 au tarif de lancement.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">Revenus récurrents</div>
+          <div class="step-desc">€15–20 / élève / atelier. 34 ateliers / an. 10–12 enfants par session. L'école garde 100%.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- PEDAGOGY -->
+    <section id="pedagogie">
+      <p class="section-label">Pédagogie</p>
+      <h2>Apprendre en faisant. Progresser en jouant.</h2>
+      <p class="section-intro">LEGO n'est pas qu'un jouet. C'est un support pédagogique qui développe des compétences fondamentales — de la motricité fine à la pensée systémique — dans un cadre où les enfants veulent naturellement rester.</p>
+
+      <div class="learn-layout">
+        <div class="photo-block">
+          <img src="photo_1.jpg" alt="Labyrinthe-Ville LEGO construit par des élèves en atelier Brick & Brain" />
+          <div class="photo-caption">Projet Labyrinthe-Ville · Construction collaborative sur 4 sessions · Atelier Brick &amp; Brain</div>
+        </div>
+        <div class="benefits-col">
+          <div class="benefit-card">
+            <div class="benefit-icon" style="background:var(--teal-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 11V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16"/>
+                <path d="M18 15h4M22 15l-3 3M22 15l-3-3"/>
+                <path d="M9 10h.01M12 10h.01M9 14h.01M12 14h.01"/>
+              </svg>
+            </div>
+            <div>
+              <div class="benefit-title">Motricité fine &amp; précision</div>
+              <div class="benefit-desc">Assembler, clipser, orienter des pièces millimétrées sollicite la coordination œil-main et développe la précision gestuelle dès 5 ans.</div>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon" style="background:var(--blue-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </div>
+            <div>
+              <div class="benefit-title">Pensée systémique &amp; résolution de problèmes</div>
+              <div class="benefit-desc">Construire un engrenage ou un labyrinthe fonctionnel oblige à anticiper, tester, corriger — les bases de la pensée scientifique.</div>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon" style="background:var(--amber-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="7" r="4"/><circle cx="17" cy="7" r="4"/>
+                <path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M22 21v-2a4 4 0 0 0-3-3.87"/>
+              </svg>
+            </div>
+            <div>
+              <div class="benefit-title">Solo ou en équipe — au choix</div>
+              <div class="benefit-desc">Les projets s'adaptent : travaux individuels pour la concentration, grands chantiers collectifs pour la coopération et la communication.</div>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon" style="background:var(--green-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M8 12l3 3 5-5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="benefit-title">Engagement &amp; plaisir durable</div>
+              <div class="benefit-desc">Les enfants veulent revenir. L'apprentissage par le jeu ancre les notions dans la mémoire émotionnelle — la fierté de ce qu'on a construit reste.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-stats">
+        <div class="learn-stat">
+          <div class="learn-stat-num" style="color:var(--red);">5–10</div>
+          <div class="learn-stat-lbl">ans · tranche d'âge cible</div>
+        </div>
+        <div class="learn-stat">
+          <div class="learn-stat-num" style="color:var(--blue);">34</div>
+          <div class="learn-stat-lbl">projets progressifs / an</div>
+        </div>
+        <div class="learn-stat">
+          <div class="learn-stat-num" style="color:var(--teal);">100%</div>
+          <div class="learn-stat-lbl">autonomie enseignant</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- KIT -->
+    <section id="kit">
+      <p class="section-label">Le kit</p>
+      <h2>Ce que vous recevez.</h2>
+      <p class="section-intro">Tout le matériel pour démarrer dès la première semaine. Projets inclus, guides pédagogiques inclus.</p>
+      <div class="kit-grid">
+        <div class="kit-item">
+          <span class="kit-icon">🧱</span>
+          <div class="kit-name">LEGO Technic</div>
+          <div class="kit-detail">10–12 postes complets</div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-icon">⚡</span>
+          <div class="kit-name">Moteurs &amp; capteurs</div>
+          <div class="kit-detail">Électronique incluse</div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-icon">📋</span>
+          <div class="kit-name">Fiches pédagogiques</div>
+          <div class="kit-detail">34 projets documentés</div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-icon">🏆</span>
+          <div class="kit-name">Label École Pilote</div>
+          <div class="kit-detail">1ère école du réseau</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- PRICING -->
+    <section id="tarifs">
+      <p class="section-label">Tarifs</p>
+      <h2>Transparent, sans surprise.</h2>
+      <p class="section-intro">Un investissement unique en Année 1. Un abonnement optionnel dès l'Année 2 pour rester à la pointe.</p>
+      <div class="pricing-grid">
+        <div class="price-card featured">
+          <div class="price-eyebrow" style="color:rgba(255,255,255,0.65);">Lancement · Offre complète</div>
+          <div class="price-main">€7 500 <span class="price-unit">HT</span></div>
+          <div class="price-name">Kit Brick &amp; Brain Complet</div>
+          <ul class="price-features">
+            <li>Kit LEGO Technic pour 10–12 élèves</li>
+            <li>Formation 2 enseignants (10j hybride)</li>
+            <li>Check-in 30 jours post-lancement</li>
+            <li>Communauté enseignants WhatsApp</li>
+            <li>Abonnement Brick &amp; Brain+ Année 1 offert</li>
+            <li>2 enseignants suppl. : €800 <span class="launch-tag" style="background:rgba(255,255,255,0.15);color:#fff;">–50%</span></li>
+          </ul>
+        </div>
+        <div class="price-stack">
+          <div class="price-card">
+            <div class="price-eyebrow">À partir de l'Année 2</div>
+            <div class="price-main">€500 <span class="price-unit">/ an</span></div>
+            <div class="price-name">Abonnement Brick &amp; Brain+</div>
+            <ul class="price-features">
+              <li>2 nouveaux projets / an</li>
+              <li>Check-in 60 jours</li>
+              <li>Support prioritaire</li>
+              <li>Remplacement pièces non-électriques</li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <div class="price-eyebrow">Découverte</div>
+            <div class="price-main">€750</div>
+            <div class="price-name">Atelier démo (1 journée)</div>
+            <ul class="price-features">
+              <li>4 sessions en conditions réelles</li>
+              <li>Offert si contrat signé dans le mois</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ROI CALCULATOR -->
+    <section id="roi">
+      <p class="section-label">Calculateur ROI</p>
+      <h2>Votre retour sur investissement.</h2>
+      <p class="section-intro">Ajustez les paramètres selon votre école. L'investissement se rembourse en quelques semaines, pas en années.</p>
+      <div class="calc-wrap">
+        <div class="calc-sliders">
+          <div class="calc-field">
+            <label>Tarif parent par atelier</label>
+            <input type="range" id="price" min="15" max="20" value="17" step="1" />
+            <div class="calc-val" id="price-val">€17 / élève</div>
+          </div>
+          <div class="calc-field">
+            <label>Élèves par atelier</label>
+            <input type="range" id="students" min="10" max="12" value="11" step="1" />
+            <div class="calc-val" id="students-val">11 élèves</div>
+          </div>
+          <div class="calc-field">
+            <label>Ateliers par semaine</label>
+            <input type="range" id="sessions" min="1" max="4" value="2" step="1" />
+            <div class="calc-val" id="sessions-val">2 ateliers / semaine</div>
+          </div>
+          <div class="calc-field">
+            <label>Investissement initial</label>
+            <input type="range" id="investment" min="7500" max="8300" value="7500" step="100" />
+            <div class="calc-val" id="investment-val">€7 500</div>
+          </div>
+        </div>
+        <div class="calc-results">
+          <div class="calc-result">
+            <div class="calc-result-num" id="weekly-rev" style="color:var(--red);">€374</div>
+            <div class="calc-result-lbl">Revenus / semaine</div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-num" id="breakeven-wk" style="color:var(--blue);">20</div>
+            <div class="calc-result-lbl">Semaines avant ROI</div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-num" id="annual-rev">€12 920</div>
+            <div class="calc-result-lbl">Revenus annuels</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- PROOF -->
+    <section>
+      <div class="proof-block">
+        <div class="proof-quote">"On cherchait une activité différenciante pour nos élèves — sans mobiliser un partenaire externe à chaque fois. Brick &amp; Brain nous a donné l'autonomie qu'on voulait, avec un programme que nos profs maîtrisent vraiment."</div>
+        <div class="proof-source">— Directrice, école primaire privée, Belgique · École Pilote Brick &amp; Brain</div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="section-label">Contact</p>
+      <h2>Parlons de votre école.</h2>
+      <p class="section-intro">Prenez rendez-vous pour un appel de découverte de 20 minutes, ou demandez directement l'organisation d'un atelier démo dans votre école.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="https://calendly.com" target="_blank" class="btn-primary">Réserver un appel gratuit (Calendly) →</a>
+        <a href="mailto:contact@brickandbrain.fr" class="btn-secondary">Demander l'atelier démo — €750</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="container">
+    <footer>
+      <div class="footer-brand">
+        <div class="logo-text" style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;">BRICK &amp; <span style="color:var(--red)">BRAIN</span></div>
+        <div class="footer-tagline">Programme STEM · Belgique &amp; Hauts-de-France · contact@brickandbrain.fr</div>
+      </div>
+      <div class="footer-langs">
+        <button class="lang-pill active">FR</button>
+        <button class="lang-pill">EN</button>
+      </div>
+      <a href="#contact" class="btn-primary" style="font-size:13px;">Réserver une démo →</a>
+    </footer>
+  </div>
+
+  <script>
+    function fmt(n) { return n.toLocaleString('fr-FR'); }
+    function calc() {
+      var p = parseInt(document.getElementById('price').value);
+      var s = parseInt(document.getElementById('students').value);
+      var sess = parseInt(document.getElementById('sessions').value);
+      var inv = parseInt(document.getElementById('investment').value);
+      var weekly = p * s * sess;
+      var annual = p * s * 34;
+      var bw = Math.ceil(inv / weekly);
+      document.getElementById('price-val').textContent = '€' + p + ' / élève';
+      document.getElementById('students-val').textContent = s + ' élèves';
+      document.getElementById('sessions-val').textContent = sess + ' atelier' + (sess > 1 ? 's' : '') + ' / semaine';
+      document.getElementById('investment-val').textContent = '€' + fmt(inv);
+      document.getElementById('weekly-rev').textContent = '€' + fmt(weekly);
+      document.getElementById('breakeven-wk').textContent = bw;
+      document.getElementById('annual-rev').textContent = '€' + fmt(annual);
+    }
+    ['price','students','sessions','investment'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', calc);
+    });
+    calc();
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
